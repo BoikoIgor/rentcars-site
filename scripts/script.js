@@ -1,4 +1,3 @@
-alert(1);
 document.getElementById('main-action').onclick = function () {
   document.getElementById('cars').scrollIntoView({ behavior: 'smooth' });
 };
@@ -21,3 +20,15 @@ document.getElementById('price-action').onclick = function () {
     alert('Спасибо за заявку, за вами выехали!');
   }
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+  let layer = document.querySelector('.price-image');
+  document.addEventListener('mousemove', (event) => {
+    layer.style.transform = 'translate3d(' + event.clientX / 1.5 + 'px,' + (event.clientY * 0.2) / 10 + 'px,0px)';
+  });
+
+  const elem = document.querySelector('.main');
+  document.addEventListener('scroll', () => {
+    elem.style.backgroundPositionX = '0' + 0.2 * window.pageYOffset + 'px';
+  });
+});
